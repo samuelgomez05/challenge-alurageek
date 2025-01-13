@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AluraGeek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="./src/js/main.js" defer></script>
+  <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+<body>
+  <header class="py-6 px-4 bg-primary">
+    <h1 class="text-white text-2xl font-press-start-2p text-center">AluraGeek</h1>
+  </header>
+  <main>
+    <section class="max-w-7xl mx-auto px-4 py-12 md:px-8">
+      <div class="flex justify-between items-center gap-4 mb-12">
+        <h2 class="text-xl font-press-start-2p text-center">Mis productos</h2>
+        <button id="open-modal" class="flex items-center gap-2 py-3 px-6 text-white font-medium text-center bg-secondary rounded-2xl border-4 border-secondary transition-colors duration-300 hover:bg-primary hover:border-primary" type="button">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M9 12h6M12 9v6"/></svg>
+          <span class="hidden sm:inline">Agregar producto</span>
+        </button>
+      </div>
+      <div class="grid gap-4 grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <article class="flex flex-col gap-2.5 p-2.5 text-white bg-primary border-4 border-black rounded-lg shadow-lg">
+          <figure class="w-full border-4 border-black rounded-lg aspect-square overflow-hidden">
+            <img class="size-full object-contain" src="https://claroperupoc.vtexassets.com/arquivos/ids/2082860/PS5Claro03.png?v=638576265210270000" alt="">
+          </figure>
+          <h3 class="line-clamp-2">PlayStation 5</h3>
+          <div class="flex gap-4 justify-between items-center mt-auto">
+            <p class="font-bold ">$ 199,90</p>
+            <button type="button">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+    <dialog id="modal" class="w-[90%] max-w-lg mx-auto p-6 rounded-2xl backdrop:bg-black/50">
+      <div class="flex justify-between items-center gap-4 mb-12">
+        <h2 class="text-xl font-press-start-2p">Agregar producto</h2>
+        <button id="close-modal" class="transition-colors duration-300 hover:text-primary" type="button" aria-label="Cerrar modal de agregar producto">
+          <svg class="size-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <form class="flex flex-col gap-5 w-full" action="">
+        <input class="w-full py-3 px-4 border-4 border-secondary rounded-2xl outline-none transition-colors duration-300 hover:border-primary focus:border-primary" type="text" placeholder="Nombre del producto ...">
+        <input class="w-full py-3 px-4 border-4 border-secondary rounded-2xl outline-none transition-colors duration-300 hover:border-primary focus:border-primary" type="number" placeholder="Precio del producto ...">
+        <input class="w-full py-3 px-4 border-4 border-secondary rounded-2xl outline-none transition-colors duration-300 hover:border-primary focus:border-primary" type="url" placeholder="Imagen del producto ...">
+        <div class="flex gap-4 flex-wrap justify-between items-center mt-5">
+          <button id="open-modal" class="grow flex justify-center items-center gap-2 py-3 px-6 text-white font-medium text-center bg-secondary rounded-2xl border-4 border-secondary transition-colors duration-300 hover:bg-primary hover:border-primary" type="submit">Agregar</button>
+          <button id="open-modal" class="grow flex justify-center items-center gap-2 py-3 px-6 text-secondary font-medium text-center bg-white rounded-2xl border-4 border-secondary transition-colors duration-300 hover:text-primary hover:border-primary" type="reset">Limpiar</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+  <footer class="py-8 px-4 text-white text-center bg-primary md:px-8">
+    <h4 class="mb-4 text-2xl font-press-start-2p">AluraGeek</h4>
+    <p>Desarrollado con ❤️ por Samuel Gomez - 2025</p>
+  </footer>
+</body>
+</html>
