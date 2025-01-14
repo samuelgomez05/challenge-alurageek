@@ -4,6 +4,20 @@
 
 @layer base {
   html {
-    @apply font-ibm-plex-mono;
+    font-family: "Onest", serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply custom-focus-visible py-3 px-6 text-center text-white bg-blue-500 border border-blue-500 rounded-sm transition-colors duration-300 hover:bg-blue-600 hover:border-blue-600;
+  }
+
+  .btn-secondary {
+    @apply custom-focus-visible py-3 px-6 text-center text-blue-500 bg-white border border-blue-500 rounded-sm transition-colors duration-300 hover:bg-blue-50 hover:border-blue-600;
+  }
+
+  .custom-focus-visible {
+    @apply focus-visible:outline-2 focus-visible:outline-double focus-visible:outline-blue-500 focus-visible:outline-offset-2;
   }
 }
