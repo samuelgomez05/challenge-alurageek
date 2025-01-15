@@ -27,13 +27,18 @@ async function listProducts() {
   try {
     const products = await connectionAPI.listProducts(); // Listamos de la API
 
-    products.forEach((product) => {
-      containerCards.appendChild(
-        createCard(product.id, product.name, product.price, product.image, product.description)
-      );
-    });
+    if (products.length > 0) {
+      const defaultContent = containerCards.querySelector('#default-content');
+      defaultContent.classList.add('hidden');
 
-    deleteProduct(); // Ejecutamos la logica para eliminar
+      products.forEach((product) => {
+        containerCards.appendChild(
+          createCard(product.id, product.name, product.price, product.image, product.description)
+        );
+      });
+
+      deleteProduct(); // Ejecutamos la logica para eliminar
+    }
   } catch {
     containerCards.innerHTML = `
     <p class="col-span-full text-lg font-semibold text-center text-gray-900">

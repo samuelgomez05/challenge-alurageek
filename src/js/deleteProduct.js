@@ -10,9 +10,19 @@ function deleteProduct() {
 
       if (confirmation) {
         try {
+          const products = await connectionAPI.listProducts(); // Listamos de la API
           await connectionAPI.deleteProduct(idProduct); // Eliminamos en la API
+
+          // Eliminamos el producto del DOM
+          const article = button.closest('article');
+          article.remove();
+
+          if (products.length === 1) {
+            const defaultContent = document.querySelector('#default-content');
+            defaultContent.classList.remove('hidden');
+          }
         } catch(error) {
-          alert(error);
+          alert(error.message);
         }
       }
     });
