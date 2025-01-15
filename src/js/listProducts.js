@@ -6,7 +6,7 @@ function createCard(id, name, price, image, description) {
   card.className = 'flex flex-col gap-3 p-3 bg-white border border-[#d6d6d6] rounded-md shadow-xl';
   card.innerHTML = `
     <figure class="w-full p-2 rounded-md aspect-square overflow-hidden">
-      <img class="size-full object-contain aspect-square" src="${image}" alt="${name}">
+      <img class="size-full object-contain aspect-square" src="${image}" alt="${name}" loading="lazy">
     </figure>
     <h3 class="font-semibold text-gray-900 line-clamp-2">${name}</h3>
     <p class="text-sm text-gray-700 line-clamp-4">${description}</p>
