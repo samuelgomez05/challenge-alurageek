@@ -23,7 +23,7 @@ keyword.addEventListener('input', async (e) => {
   // Agregamos solo los productos que coinciden al contenedor
   products.forEach((product) => {
     containerCards.appendChild(
-      createCard(product.id, product.name, product.price, product.image)
+      createCard(product.id, product.name, product.price, product.image, product.description)
     );
   });
 
