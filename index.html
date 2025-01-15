@@ -7,65 +7,56 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <script src="./src/js/main.js" defer></script>
+  <script src="./src/js/listProducts.js" type="module"></script>
+  <script src="./src/js/addProduct.js" type="module"></script>
+  <script src="./src/js/deleteProduct.js" type="module"></script>
+  <script src="./src/js/searchProduct.js" type="module"></script>
   <link rel="stylesheet" href="./src/css/styles.css">
 </head>
 <body>
-  <header class="flex flex-col justify-center items-center gap-4 max-w-screen-2xl mx-auto py-6 px-4 bg-white sm:flex-row sm:justify-between sm:gap-8 md:px-8">
-    <h1 class="text-2xl font-press-start-2p text-center">AluraGeek</h1>
-    <search class="grow w-full sm:max-w-sm">
-      <form class="relative w-full" action="">
-        <input class="w-full p-3 pr-9 bg-blue-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="search" placeholder="Buscar producto ..." required>
-        <button class="custom-focus-visible absolute top-1/2 right-3 -translate-y-1/2" aria-label="Buscar producto">
-          <svg class="size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6"/></svg>
-        </button>
-      </form>
-    </search>
+  <header class="bg-gradient-to-r from-blue-500 to-blue-600">
+    <div class="flex flex-col justify-center items-center gap-4 max-w-screen-2xl mx-auto py-6 px-4 sm:flex-row sm:justify-between sm:gap-8 md:px-8">
+      <h1 class="text-2xl font-press-start-2p text-center text-white md:text-3xl">AluraGeek</h1>
+      <search class="grow w-full sm:max-w-sm">
+        <form id="search" class="relative w-full" autocomplete="off">
+          <svg class="absolute top-1/2 left-3 -translate-y-1/2 size-4 select-none pointer-events-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6"/></svg>
+          <input id="keyword" class="w-full p-3 pl-9 text-gray-900 bg-gray-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-600" type="search" placeholder="Buscar producto ..." required>
+        </form>
+      </search>
+    </div>
   </header>
-  <main class="bg-blue-50">
+  <main class="bg-gray-50">
     <section class="max-w-screen-2xl mx-auto px-4 py-12 md:px-8">
       <div class="flex justify-between items-center gap-4 mb-12">
-        <h2 class="text-xl font-press-start-2p">Mis productos</h2>
+        <h2 class="text-xl text-gray-950 font-press-start-2p">Mis productos</h2>
         <button id="open-modal" class="btn-primary flex items-center gap-2" type="button">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M9 12h6M12 9v6"/></svg>
           <span class="hidden sm:inline">Agregar producto</span>
         </button>
       </div>
-      <div class="grid gap-x-4 gap-y-8 grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6 lg:grid-cols-5">
-        <article class="flex flex-col gap-3 p-3 bg-white border border-black rounded-md shadow-lg">
-          <figure class="w-full rounded-md aspect-square overflow-hidden">
-            <img class="size-full object-contain" src="https://claroperupoc.vtexassets.com/arquivos/ids/2082860/PS5Claro03.png?v=638576265210270000" alt="">
-          </figure>
-          <h3 class="line-clamp-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur voluptatibus rem tenetur similique sunt, vitae quos porro dicta quia velit temporibus natus nemo aliquam consectetur amet sed, nobis molestias illo.</h3>
-          <div class="flex gap-4 justify-between items-center mt-auto">
-            <p class="font-bold">$ 199.90</p>
-            <button class="btn-secondary py-1 px-2" type="button" aria-label="Eliminar producto">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg>
-            </button>
-          </div>
-        </article>
-      </div>
+      <div id="container-cards" class="grid gap-x-4 gap-y-8 grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6 lg:grid-cols-5"></div>
     </section>
     <dialog id="modal" class="w-[90%] max-w-lg mx-auto p-6 rounded-md backdrop:bg-black/50">
-      <div class="flex justify-between items-center gap-4 mb-12">
+      <div class="flex justify-between items-center gap-4 mb-12 text-gray-950">
         <h2 class="text-xl font-press-start-2p">Agregar producto</h2>
-        <button id="close-modal" class="custom-focus-visible transition-colors duration-300 hover:text-blue-500" type="button" aria-label="Cerrar modal de agregar producto">
+        <button id="close-modal" class="custom-focus-visible transition-colors duration-300 hover:text-blue-600" type="button" aria-label="Cerrar modal de agregar producto">
           <svg class="size-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
-      <form class="flex flex-col gap-5 w-full" action="">
-        <input class="w-full p-3 bg-blue-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="text" placeholder="Nombre del producto ..." required>
-        <input class="w-full p-3 bg-blue-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="number" placeholder="Precio del producto ..." required min="1">
-        <input class="w-full p-3 bg-blue-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="url" placeholder="Imagen del producto ..." required>
+      <form id="form" class="flex flex-col gap-5 w-full" autocomplete="off">
+        <input id="name" class="w-full p-3 text-gray-900 bg-gray-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="text" placeholder="Nombre del producto ..." required>
+        <input id="description" class="w-full p-3 text-gray-900 bg-gray-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="text" placeholder="Descripción del producto ..." required>
+        <input id="price" class="w-full p-3 text-gray-900 bg-gray-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="number" placeholder="Precio del producto ..." required min="1" step="any">
+        <input id="image" class="w-full p-3 text-gray-900 bg-gray-50 rounded-sm border border-transparent outline-none transition-colors duration-300 placeholder:text-black/70 focus:border focus:border-blue-500" type="url" placeholder="Imagen del producto ..." required>
         <div class="flex gap-4 flex-wrap justify-between items-center mt-5">
-          <button id="open-modal" class="btn-primary grow" type="submit">Agregar</button>
-          <button id="open-modal" class="btn-secondary grow" type="reset">Limpiar</button>
+          <button class="btn-primary grow" type="submit">Agregar</button>
+          <button class="btn-secondary grow" type="reset">Limpiar</button>
         </div>
       </form>
     </dialog>
   </main>
-  <footer class="py-8 px-4 text-center bg-white md:px-8">
-    <h4 class="mb-4 text-2xl font-press-start-2p">AluraGeek</h4>
+  <footer class="py-8 px-4 text-center text-white bg-gradient-to-r from-blue-500 to-blue-600 md:px-8">
+    <p class="mb-4 text-2xl font-press-start-2p">AluraGeek</p>
     <p>Desarrollado con ❤️ por Samuel Gomez - 2025</p>
   </footer>
 </body>
