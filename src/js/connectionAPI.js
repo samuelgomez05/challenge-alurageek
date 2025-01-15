@@ -1,12 +1,14 @@
+const url = 'https://67870174c4a42c916105610e.mockapi.io/alurageek/products';
+
 async function listProducts() {
-  const response = await fetch('http://localhost:5000/products');
+  const response = await fetch(url);
   const data = await response.json();
 
   return data;
 }
 
 async function addProduct(name, price, image, description) {
-  const response = await fetch('http://localhost:5000/products', {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {'Content-type':'application/json'},
     body: JSON.stringify({
@@ -27,14 +29,18 @@ async function addProduct(name, price, image, description) {
 }
 
 async function searchProduct(keyword) {
-  const response = await fetch(`http://localhost:5000/products?q=${keyword}`);
+  const response = await fetch(`${url}?name=${keyword}`);
   const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(`No se encontraron productos para '${keyword}'`);
+  }
 
   return data;
 }
 
 async function deleteProduct(id) {
-  const response = await fetch(`http://localhost:5000/products/${id}`, {
+  const response = await fetch(`${url}/${id}`, {
     method: 'DELETE',
   });
 
