@@ -1,5 +1,6 @@
 import { connectionAPI } from './connectionAPI.js';
 import createCard from './listProducts.js';
+import deleteProduct from './deleteProduct.js';
 
 const search = document.querySelector('#search');
 const keyword = document.querySelector('#keyword');
@@ -26,6 +27,8 @@ keyword.addEventListener('input', async (e) => {
       createCard(product.id, product.name, product.price, product.image, product.description)
     );
   });
+
+  deleteProduct(); // Ejecutamos la logica para eliminar
 
   if (products.length === 0) {
     containerCards.innerHTML = `
