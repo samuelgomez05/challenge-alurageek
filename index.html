@@ -34,7 +34,12 @@
           <span class="hidden sm:inline">Agregar producto</span>
         </button>
       </div>
-      <div id="container-cards" class="grid gap-x-4 gap-y-8 grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6 lg:grid-cols-5"></div>
+      <div id="container-cards" class="grid gap-x-4 gap-y-8 grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6 lg:grid-cols-5">
+        <p id="default-content" class="col-span-full text-lg font-semibold text-center text-gray-900">
+          <img class="size-full max-h-80 mx-auto aspect-square" src="../../src/assets/img/illustration-search-engine.svg" alt="No se encontraron productos">
+          ¡Upps! No hay productos para mostrar... ¿Qué tal si agregamos uno?
+        </p>
+      </div>
     </section>
     <dialog id="modal" class="w-[90%] max-w-lg mx-auto p-6 rounded-md backdrop:bg-black/50">
       <div class="flex justify-between items-center gap-4 mb-12 text-gray-950">
