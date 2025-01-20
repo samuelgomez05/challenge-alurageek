@@ -1,4 +1,4 @@
-const url = 'https://67870174c4a42c916105610e.mockapi.io/alurageek/products';
+const url = 'https://67870174c4a42c916105610e.mockapi.io/alura/products';
 
 async function listProducts() {
   const response = await fetch(url);
